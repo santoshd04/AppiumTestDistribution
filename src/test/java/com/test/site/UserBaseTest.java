@@ -17,6 +17,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import org.testng.annotations.Test;
 
 public class UserBaseTest extends AppiumParallelTest {
     JSonParser jSonParser = new JSonParser();
@@ -26,6 +27,7 @@ public class UserBaseTest extends AppiumParallelTest {
         //Moving the method inside the dependency in the next release
         startLogResults(name.getName());
     }
+
 
     @AfterMethod(alwaysRun = true) public void killServer(ITestResult result)
         throws InterruptedException, IOException {
@@ -88,5 +90,10 @@ public class UserBaseTest extends AppiumParallelTest {
             .setCapability(MobileCapabilityType.APP, prop.getProperty("ANDROID_APP_PATH"));
         androidCapabilities.setCapability(MobileCapabilityType.UDID, device_udid);
         return androidCapabilities;
-    }
+    } 
+    @Test
+public void testHomePage1() throws InterruptedException {
+    Thread.sleep(4000);
+}
+
 }
