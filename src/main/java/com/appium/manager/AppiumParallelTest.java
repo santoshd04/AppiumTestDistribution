@@ -70,6 +70,10 @@ public class AppiumParallelTest extends TestListenerAdapter implements ITestList
     private AndroidDeviceConfiguration androidDevice;
     public AvailablePorts ports;
 
+    @Author(name = "myAuthorName")
+    
+    void myAuthor(){
+    }
     public AppiumParallelTest() {
         try {
             iosDevice = new IOSDeviceConfiguration();
