@@ -279,7 +279,7 @@ public void startingServerInstance(DesiredCapabilities iosCaps, DesiredCapabilit
   final boolean isIOSAPPPathNull = prop.getProperty("IOS_APP_PATH");
 // created variable to check whether the device is an IOS device
   final boolean isIOSDevice = iosDevice.checkiOSDevice(device_udid));
-// replaced expressions with variable
+// replaced expressions with new variables
                if (isIOSAPPPathNull && isIOSDevice) {
                    if (iosCaps == null) {
                        iosCaps = deviceCapabilityManager.iosNative(device_udid);
@@ -292,7 +292,7 @@ public void startingServerInstance(DesiredCapabilities iosCaps, DesiredCapabilit
                        }
                    }
                    driver = new IOSDriver<>(appiumMan.getAppiumUrl(), iosCaps);
-// replaced expressions with variable
+// replaced expressions with new variable
                } else if (!isIOSDevice) {
                    if (androidCaps == null) {
                        androidCaps = deviceCapabilityManager.androidNative(device_udid);
