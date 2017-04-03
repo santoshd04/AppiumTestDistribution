@@ -61,10 +61,7 @@ public class IOSDeviceConfiguration {
                 return null;
             } else {
                 while (endPos < getIOSDeviceID.length()) {
-                    if (validDeviceIds == null 
-                            || (validDeviceIds != null 
-                            && validDeviceIds.contains(
-                                    getIOSDeviceID.substring(startPos, endPos + 1)))) {
+                    if (deviceIdValidation(getIOSDeviceID.subString(startPos, endPos + 1)))  {
                         if (!deviceUDIDiOS.contains(getIOSDeviceID)) {
                             deviceUDIDiOS.add(getIOSDeviceID.substring(startPos, endPos + 1));
                         }
@@ -80,7 +77,13 @@ public class IOSDeviceConfiguration {
         }
     }
 
-    public Map<String, String> getIOSUDIDHash() {
+   private boolean deviceIdValidation(String searchString) {
+ return validDeviceIds == null
+         || (validDeviceIds != null
+         && validDeviceIds.contains(
+                 searchString));
+}
+ public Map<String, String> getIOSUDIDHash() {
         try {
             String getIOSDeviceID = commandPrompt.runProcessCommandToGetDeviceID(profile);
             if (getIOSDeviceID == null || getIOSDeviceID.equalsIgnoreCase("") || getIOSDeviceID
